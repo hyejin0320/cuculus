@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap');
 
-html, body, tr, td, li, ol, ul{
+html, body, tr, td, li, ol, ul, button{
     margin:0;
     padding:0;
+    cursor:none;
 }
 
 button{
@@ -18,6 +19,7 @@ button{
 html, body{
     width: 100%;
     height:100%;
+    overflow: hidden;
 }
 
 body{
@@ -42,11 +44,17 @@ body{
     z-index:0;
     top:0;
     left:0;
-    width:100px;
-    height:100px;
+    width:50px;
+    height:50px;
     background-color: #ff0;
     border-radius: 100%;
     transform: translate(-50%, -50%);
+    transition: all 0.2s;
+}
+
+.mouse_circle_hover{
+    background-color: #000;
+    scale: 1.5;
 }
 
 .title1{
@@ -57,17 +65,17 @@ body{
 }
 
 .title1::before{
-    content: '올리기';
+    content: '마우스를 올려보세요';
+    color: #000;
 }
 
-.title1:hover{
+.title1_hover{
     font-weight: bold;
     font-size: 10em;
-    margin: 0;
 }
 
-.title1:hover::before{
-    content: 'spacebar';
+.title1_hover::before{
+    content: '스페이스바를 누르세요';
     margin: 0px;
     color: #fcfcfc;
 }
@@ -77,4 +85,5 @@ body{
     padding: 10px 30px;
     border: 1px solid #006d52;
     background-color: transparent;
+    cursor:none;
 }
