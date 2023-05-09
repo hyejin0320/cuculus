@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap');
+
+html, body, tr, td, li, ol, ul{
+    margin:0;
+    padding:0;
+}
+
+button{
+    background: inherit ; 
+    border:none; 
+    box-shadow:none; 
+    border-radius:0;
+     padding:0; 
+     overflow:visible; 
+     cursor:pointer
+    }
+
+html, body{
+    width: 100%;
+    height:100%;
+}
+
+body{
+    background-color: #fcfcfc;
+}
+
+.hide{
+    display: none;
+}
+
+#section{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.mouse_circle{
+    position:absolute;
+    z-index:0;
+    top:0;
+    left:0;
+    width:100px;
+    height:100px;
+    background-color: #ff0;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.title1{
+    z-index: 10;
+    font-family: 'Gowun Batang', serif;
+    font-size: 2em;
+    transition:all 0.2s;
+}
+
+.title1::before{
+    content: '올리기';
+}
+
+.title1:hover{
+    font-weight: bold;
+    font-size: 10em;
+    margin: 0;
+}
+
+.title1:hover::before{
+    content: 'spacebar';
+    margin: 0px;
+    color: #fcfcfc;
+}
+
+.btn_green{
+    z-index: 10;
+    padding: 10px 30px;
+    border: 1px solid #006d52;
+    background-color: transparent;
+}
