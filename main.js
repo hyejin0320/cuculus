@@ -1,46 +1,76 @@
 $(document).ready(function() {
-    initMouse();
+
+  //mouse move
+  var mouseX = 0, mouseY = 0;
+  var xp = 0, yp = 0;
+   
+  $(document).mousemove(function(e){
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+  });
+    
+  setInterval(function(e){
+    console.log(e)
+    xp += mouseX - xp
+    yp += mouseY - yp
+    $(".mouse_circle").css({left: xp +'px', top: yp +'px'});
+  }, 20);
+  //mouse move
+
+  //mouse scroll
+
+  //mouse scroll
 });
+
+
+
+
+
+
 
 //마우스 커서, 스크롤 이벤트
 function initMouse(){
   let commonSet = {passive: true, capture: true};
-  let mouseCursor = document.querySelector(".mouse_circle");
+
+  let $mouseCursor = $(".mouse_circle");
+  // let TweenMax = new TweenMax();
   let eventEle = document.querySelectorAll(".cursor_event_element");
   let title1 = document.querySelector(".title1");
-  let cursorSize = 1;
-  let cursorMaxSize = 3;
+  let cursorSize = 50;
+  let cursorMaxSize = cursorSize*4;
+  let cursorMinSize = 50;
   let spacebarCnt = 0;
+
+  // $('body').on('mousemove', cursor);
     
   window.addEventListener("wheel", scroll, commonSet);
-  window.addEventListener("mousemove", cursor, commonSet);
-  window.addEventListener("keydown", showBtn, commonSet);
-  eventEle.forEach((ele)=>{
-    ele.addEventListener("mouseenter", mouseEnterEle, commonSet);
-    ele.addEventListener("mouseleave", mouseLeaveEle, commonSet);
-  });
-  title1.addEventListener("mouseenter", title1Enter, commonSet);
-  title1.addEventListener("mouseleave", title1Leave, commonSet);
+  document.body.addEventListener('mousemove', cursor);
 
   function cursor(e){
-    mouseCursor.style.left = e.pageX + "px";
-    mouseCursor.style.top = e.pageY + "px";
+    // mouseCursor.style.left = e.pageX + "px";
+    // mouseCursor.style.top = e.pageY + "px";
+    TweenMax.to($mouseCursor, .1, {
+      x: e.pageX - 5,
+      y: e.pageY - 7
+    })
   }
 
   function scroll(e){
-    console.log('?')
-
     if (e.deltaY < 0) {
-      if(cursorSize != cursorMaxSize){
-        cursorSize += 1;
+      if(cursorSize < cursorMaxSize){
+        cursorSize += 50;
       }
     }else{
-      if(cursorSize != 1){
-        cursorSize -= 1;
+      if(cursorSize > cursorMinSize){
+        cursorSize -= 50;
       }
     }
 
-    mouseCursor.style.scale = cursorSize;
+    console.log(cursorSize)
+
+
+    mouseCursor.style.width = cursorSize+'px';
+    mouseCursor.style.height = cursorSize+'px';
   }
 
   function mouseEnterEle(e){
@@ -67,4 +97,8 @@ function initMouse(){
       }
     }
   }
+}
+
+function initElement(){
+  
 }

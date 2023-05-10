@@ -3,7 +3,7 @@
 html, body, tr, td, li, ol, ul, button{
     margin:0;
     padding:0;
-    cursor:none;
+    /* cursor:none; */
 }
 
 button{
@@ -40,7 +40,7 @@ body{
 }
 
 .mouse_circle{
-    position:absolute;
+    position:fixed;
     z-index:0;
     top:0;
     left:0;
