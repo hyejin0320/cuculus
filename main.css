@@ -3,7 +3,7 @@
 html, body, tr, td, li, ol, ul, button{
     margin:0;
     padding:0;
-    /* cursor:none; */
+    cursor:none;
 }
 
 button{
@@ -41,7 +41,7 @@ body{
 
 .mouse_circle{
     position:fixed;
-    z-index:0;
+    z-index:5;
     top:0;
     left:0;
     width:50px;
@@ -49,19 +49,19 @@ body{
     background-color: #ff0;
     border-radius: 100%;
     transform: translate(-50%, -50%);
-    transition: all 0.2s;
+    transition: 0.2s all ease-in-out;
+    transition-property: width, height, background-color, scale;
 }
 
 .mouse_circle_hover{
     background-color: #000;
-    scale: 1.5;
+    scale:1.5;
 }
 
 .title1{
     z-index: 10;
     font-family: 'Gowun Batang', serif;
     font-size: 2em;
-    transition:all 0.2s;
 }
 
 .title1::before{
@@ -75,15 +75,23 @@ body{
 }
 
 .title1_hover::before{
-    content: '스페이스바를 누르세요';
+    content: '스페이스바를 다섯 번 누르세요';
     margin: 0px;
     color: #fcfcfc;
 }
 
 .btn_green{
-    z-index: 10;
+    z-index: 0;
     padding: 10px 30px;
     border: 1px solid #006d52;
     background-color: transparent;
     cursor:none;
+    transition: all .2s;
+}
+
+.btn_green:hover{
+    z-index: 0;
+    border: 1px solid #fcfcfc;
+    background-color: rgb(0, 0, 0, .5);
+    color:#fcfcfc;
 }

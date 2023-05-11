@@ -7,26 +7,94 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="./test.js"></script>
     <style>
-        @import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
-            body, html {
-                position: relative;
-                height: 100%; 
-                width : 100%;  
-                margin: 0;
-            background-color: #000000;
-            }
+        body, html {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background: #000;
+  background: #161616;
+}
 
-            .circle {
-                position: absolute;
-            border: solid 1px #ccc;
-                width: 60px; 
-                height: 60px; 
-            border-radius: 50%;  
-            }
+.circle {
+  position: absolute;
+  border: solid 1px #ccc;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.4s all ease-in-out;
+  transition-property: transform, width, height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+div {
+  /*   padding-top: 200px; */
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+
+div a {
+  margin: 0 auto 0;
+  display: block;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  transition: 0.4s all ease;
+  font-size: 45px;
+  font-weight: 700;
+  text-decoration: none;
+  mix-blend-mode: difference;
+}
+
+.active {
+  height: 95px;
+  width: 95px;
+  border: 1px solid transparent;
+  background-color: #fff;
+}
+.active.show-view .view {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.2s;
+}
+
+.view {
+  opacity: 0;
+  text-align: center;
+  font-size: 12px;
+  visibility: hidden;
+  pointer-events: none;
+  font-weight: 600;
+  transition: 0.4s ease;
+  transition-property: visibility, opacity;
+}
+
+.image {
+  position: relative;
+  z-index: -1;
+  cursor: pointer;
+}
     </style>
     <title>Document</title>
 </head>
 <body>
-    <span id="circle" class="circle"></span>
+    <span id="circle" class="circle">
+        <span class="view">view more</span>
+      </span>
+      <div>
+        <a class= "button" href="#">Hover Me</a>
+      </div>
+      <div class="image"> <img src = "https://source.unsplash.com/random/?Cryptocurrency&2"/>
+        <a class="stretched-link"></a></div>
+      
 </body>
 </html>
